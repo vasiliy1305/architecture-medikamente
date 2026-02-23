@@ -1,0 +1,73 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Ishikawa" id="0">
+    <mxGraphModel dx="1226" dy="736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="problem" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;strokeWidth=2;" value="Снижение производительности после миграции" vertex="1">
+          <mxGeometry height="60" width="400" x="950" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="spine" edge="1" parent="1" style="endArrow=none;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="490" as="sourcePoint" />
+            <mxPoint x="950" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="infra" parent="1" style="text;html=1;fontSize=14;" value="Инфраструктура" vertex="1">
+          <mxGeometry height="30" width="160" x="240" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="text;html=1;fontSize=14;" value="Базы данных" vertex="1">
+          <mxGeometry height="30" width="160" x="500" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="software" parent="1" style="text;html=1;fontSize=14;" value="ПО" vertex="1">
+          <mxGeometry height="30" width="160" x="700" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="integration" parent="1" style="text;html=1;fontSize=14;" value="Интеграция" vertex="1">
+          <mxGeometry height="30" width="160" x="300" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="people" parent="1" style="text;html=1;fontSize=14;" value="Персонал" vertex="1">
+          <mxGeometry height="30" width="160" x="500" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="process" parent="1" style="text;html=1;fontSize=14;" value="Процессы" vertex="1">
+          <mxGeometry height="30" width="160" x="700" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="f5pZfhaEaza3y_1tLWIp-1" edge="1" parent="1" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="280" as="sourcePoint" />
+            <mxPoint x="380" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5pZfhaEaza3y_1tLWIp-2" edge="1" parent="1" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="280" as="sourcePoint" />
+            <mxPoint x="580" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5pZfhaEaza3y_1tLWIp-3" edge="1" parent="1" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="280" as="sourcePoint" />
+            <mxPoint x="780" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5pZfhaEaza3y_1tLWIp-4" edge="1" parent="1" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="650" as="sourcePoint" />
+            <mxPoint x="380" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5pZfhaEaza3y_1tLWIp-5" edge="1" parent="1" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="650" as="sourcePoint" />
+            <mxPoint x="580" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5pZfhaEaza3y_1tLWIp-6" edge="1" parent="1" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="650" as="sourcePoint" />
+            <mxPoint x="780" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
