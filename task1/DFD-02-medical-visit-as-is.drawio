@@ -1,0 +1,64 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="DFD-02-Medical-Visit-As-Is" id="0">
+    <mxGraphModel dx="1042" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Пациент" vertex="1">
+          <mxGeometry height="60" width="140" x="40" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" value="Процесс: Приём пациента и создание медкарты" vertex="1">
+          <mxGeometry height="110" width="320" x="300" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;" value="Data Store: Медкарта (Excel / JPG / PDF)" vertex="1">
+          <mxGeometry height="70" width="260" x="770" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;" value="Data Store: Файловый сервер" vertex="1">
+          <mxGeometry height="70" width="260" x="770" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;" value="Data Store: Active Directory" vertex="1">
+          <mxGeometry height="70" width="260" x="770" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Врач" vertex="1">
+          <mxGeometry height="60" width="140" x="180" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="10" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="3" value="Передача PII &lt;br&gt;жалобы&amp;nbsp;">
+          <mxGeometry relative="1" x="0.04" y="15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="3" value="Осмотр / медицинские данные">
+          <mxGeometry relative="1" x="0.0476" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="4" value="Создание&lt;div&gt;обновление&lt;/div&gt;&lt;div&gt;медкарты&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="690" y="305" />
+              <mxPoint x="690" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="5" value="Хранение файла&lt;div&gt;&amp;nbsp;(Excel/JPG/PDF)&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="6" value="Аутентификация&amp;nbsp;&lt;div&gt;врача&amp;nbsp;&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="305" />
+              <mxPoint x="690" y="485" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9ElLlKFW9eBXY4KiCuDl-14" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9ElLlKFW9eBXY4KiCuDl-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontStyle=1;fontSize=24;" value="Приём пациента и создание медкарты" vertex="1">
+          <mxGeometry height="40" width="450" x="330" y="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

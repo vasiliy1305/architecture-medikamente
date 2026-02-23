@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="DFD-03-Payment-As-Is">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1"
+      tooltips="1" connect="1" arrows="1" fold="1" page="1"
+      pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Пациент -->
+        <mxCell id="2" value="Пациент"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Кассир -->
+        <mxCell id="3" value="Кассир"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="220" y="120" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Процесс оплаты -->
+        <mxCell id="4" value="Процесс: Оплата услуги (касса)"
+          style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="320" y="270" width="300" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Рабочий ПК кассира -->
+        <mxCell id="5" value="Система: ПК кассира (Excel + 1С клиент)"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="220" y="470" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Excel (двойной учет) -->
+        <mxCell id="6" value="Data Store: Excel (двойной учёт оплат)"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="700" y="130" width="280" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- 1С:Бухгалтерия -->
+        <mxCell id="7" value="Система: 1С:Бухгалтерия (файловый режим)"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="700" y="270" width="280" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Data store бухгалтерии (файлы базы 1С) -->
+        <mxCell id="8" value="Data Store: Файлы базы 1С (на сервере)"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="700" y="400" width="280" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ККМ -->
+        <mxCell id="9" value="Система: ККМ (касса)"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="1040" y="270" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Active Directory -->
+        <mxCell id="10" value="Data Store: Active Directory"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="700" y="520" width="280" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Потоки данных -->
+
+        <!-- Пациент -> Процесс -->
+        <mxCell id="20" value="Данные для оплаты (услуга, сумма) + идентификация пациента (PII минимум)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Кассир -> Процесс -->
+        <mxCell id="21" value="Ввод данных оплаты / подтверждение"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Процесс -> ПК кассира -->
+        <mxCell id="22" value="Операции в Excel и 1С (ввод/сохранение)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ПК кассира -> Excel -->
+        <mxCell id="23" value="Двойной учёт: запись оплаты (PII + сумма + услуга)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ПК кассира -> 1С -->
+        <mxCell id="24" value="Проводка оплаты / создание документов"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 1С -> Файлы базы 1С -->
+        <mxCell id="25" value="Хранение данных бухгалтерии (файловая БД)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 1С -> ККМ -->
+        <mxCell id="26" value="Команды печати/фискализации (OLE/TCP/IP)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="7" target="9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Процесс -> Active Directory -->
+        <mxCell id="27" value="Аутентификация кассира (AD)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="4" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

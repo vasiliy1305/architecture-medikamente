@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="DFD-02-Medical-Visit-As-Is">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1"
+      tooltips="1" connect="1" arrows="1" fold="1" page="1"
+      pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Пациент -->
+        <mxCell id="2" value="Пациент"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Процесс -->
+        <mxCell id="3" value="Процесс: Приём пациента и создание медкарты"
+          style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="300" y="250" width="320" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Excel / Медкарта -->
+        <mxCell id="4" value="Data Store: Медкарта (Excel / JPG / PDF)"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="700" y="180" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Файловый сервер -->
+        <mxCell id="5" value="Data Store: Файловый сервер"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="700" y="320" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Active Directory -->
+        <mxCell id="6" value="Data Store: Active Directory"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="700" y="450" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Врач -->
+        <mxCell id="7" value="Врач"
+          style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="180" y="150" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Потоки данных -->
+
+        <!-- Пациент -> Процесс -->
+        <mxCell id="10" value="Передача PII + жалобы + анамнез"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Врач -> Процесс -->
+        <mxCell id="11" value="Осмотр / медицинские данные"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="7" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Процесс -> Медкарта -->
+        <mxCell id="12" value="Создание / обновление медкарты"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Медкарта -> Файловый сервер -->
+        <mxCell id="13" value="Хранение файла (Excel/JPG/PDF)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Процесс -> Active Directory -->
+        <mxCell id="14" value="Аутентификация врача (AD)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;"
+          edge="1" parent="1" source="3" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
