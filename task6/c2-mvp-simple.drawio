@@ -1,80 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" type="device">
-  <diagram name="C2 - MVP Simple">
-    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="1000">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
+  <diagram name="C2 - MVP Simple" id="0">
+    <mxGraphModel dx="1028" dy="611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
       <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-
-        <mxCell id="t" value="C2 (MVP): Классификация данных перед DWH"
-                style="text;html=1;strokeColor=none;fillColor=none;fontSize=18;fontStyle=1;"
-                vertex="1" parent="1">
-          <mxGeometry x="180" y="30" width="1240" height="40" as="geometry"/>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t" value="C2 (MVP) Классификация данных перед DWH" style="text;html=1;strokeColor=none;fillColor=none;fontSize=18;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="195" width="1240" height="40" as="geometry" />
         </mxCell>
-
-        <!-- 6 контейнеров + DWH -->
-        <mxCell id="src" value="Data Sources"
-                style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
-                vertex="1" parent="1">
-          <mxGeometry x="80" y="180" width="220" height="70" as="geometry"/>
+        <mxCell id="src" value="Data Sources" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="160" width="320" height="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="raw" value="Raw Storage&#10;(landing)"
-                style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
-                vertex="1" parent="1">
-          <mxGeometry x="340" y="180" width="240" height="70" as="geometry"/>
+        <mxCell id="raw" value="Raw Storage&amp;#10;(S3/MinIO landing)&amp;#10;Parquet/JSON" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="280" width="320" height="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="schema" value="Schema Detect&#10;(auto)"
-                style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
-                vertex="1" parent="1">
-          <mxGeometry x="620" y="180" width="220" height="70" as="geometry"/>
+        <mxCell id="schema" value="Schema Detect&amp;#10;(Spark inference)&amp;#10;+ Schema Registry (Postgres)" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="400" width="320" height="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="cls" value="Classifier&#10;(rules + confidence)"
-                style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
-                vertex="1" parent="1">
-          <mxGeometry x="880" y="180" width="260" height="70" as="geometry"/>
+        <mxCell id="cls" value="Classifier&amp;#10;(Presidio + regex rules)&amp;#10;confidence score" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="510" width="320" height="90" as="geometry" />
         </mxCell>
-
-        <mxCell id="tz" value="Transform&#10;(mask or quarantine)"
-                style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
-                vertex="1" parent="1">
-          <mxGeometry x="1180" y="180" width="300" height="70" as="geometry"/>
+        <mxCell id="tz" value="Transform&amp;#10;(Spark masking/tokenization)&amp;#10;route to zones" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="400" y="520" width="320" height="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="zones" value="Zones&#10;Curated / Confidential / Quarantine"
-                style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
-                vertex="1" parent="1">
-          <mxGeometry x="520" y="340" width="360" height="90" as="geometry"/>
+        <mxCell id="zones" value="Zones&amp;#10;curated / confidential / quarantine&amp;#10;(S3 buckets or DB schemas)" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="800" y="520" width="360" height="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="dwh" value="Analytics DWH"
-                style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
-                vertex="1" parent="1">
-          <mxGeometry x="980" y="350" width="220" height="70" as="geometry"/>
+        <mxCell id="dwh" value="Analytics DWH&amp;#10;(ClickHouse)" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="800" y="640" width="360" height="80" as="geometry" />
         </mxCell>
-
-        <!-- потоки -->
-        <mxCell id="e1" style="endArrow=block;html=1;strokeWidth=2;" edge="1" parent="1" source="src" target="raw">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="e1" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="src" target="raw" edge="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e2" style="endArrow=block;html=1;strokeWidth=2;" edge="1" parent="1" source="raw" target="schema">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="e2" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="raw" target="schema" edge="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e3" style="endArrow=block;html=1;strokeWidth=2;" edge="1" parent="1" source="schema" target="cls">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="e3" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="schema" target="cls" edge="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e4" style="endArrow=block;html=1;strokeWidth=2;" edge="1" parent="1" source="cls" target="tz">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="e4" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="cls" target="tz" edge="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e5" style="endArrow=block;html=1;strokeWidth=2;" edge="1" parent="1" source="tz" target="zones">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="e5" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="tz" target="zones" edge="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e6" value="batch load" style="endArrow=block;html=1;strokeWidth=2;" edge="1" parent="1" source="zones" target="dwh">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="e6" value="batch load" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="zones" target="dwh" edge="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
+        <mxCell id="policy" value="Metadata &amp;amp; Policy Store&amp;#10;(Postgres + Apache Ranger)&amp;#10;schemas, labels, audit" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="640" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="tags + confidence" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="cls" target="policy" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="policies / tag-based access" style="endArrow=block;html=1;strokeWidth=2;" parent="1" source="policy" target="dwh" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
