@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
   <diagram name="DFD-02-Medical-Visit-As-Is" id="0">
-    <mxGraphModel dx="1042" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1028" dy="611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -57,6 +57,26 @@
         </mxCell>
         <mxCell id="9ElLlKFW9eBXY4KiCuDl-15" value="Приём пациента и создание медкарты" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontStyle=1;fontSize=24;" parent="1" vertex="1">
           <mxGeometry x="330" y="65" width="450" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1dxSgpWNlVEExpHmJqtP-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1dxSgpWNlVEExpHmJqtP-14" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1dxSgpWNlVEExpHmJqtP-14" value="Заменить Excel файлы на&amp;nbsp;&lt;br&gt;БД с разграничением доступа&amp;nbsp;&lt;div&gt;&lt;font face=&quot;Consolas, Courier New, monospace&quot; color=&quot;#cccccc&quot;&gt;&lt;span style=&quot;font-size: 14px; white-space: pre; background-color: rgb(31, 31, 31);&quot;&gt;шифрованием&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="165" width="270" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1dxSgpWNlVEExpHmJqtP-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1dxSgpWNlVEExpHmJqtP-16" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1dxSgpWNlVEExpHmJqtP-16" value="&lt;div&gt;Доступ: MFA для врача + RBAC/ABAC (лечащий врач/подразделение) + аудит просмотра/изменений&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="310" y="510" width="270" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1dxSgpWNlVEExpHmJqtP-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1dxSgpWNlVEExpHmJqtP-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1dxSgpWNlVEExpHmJqtP-18" value="&lt;div&gt;Передача: защищённый канал&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;минимизация данных в обращении (только нужные поля)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="130" y="50" width="240" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
