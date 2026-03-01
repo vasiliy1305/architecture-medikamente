@@ -15,11 +15,11 @@ rectangle "1C and Cash Register\n(Migration period)" as Legacy
 ' --- Main System Boundary ---
 package "MEDIKAMENTE To-Be\n(System Boundary)" {
 
-  rectangle "API Gateway / BFF\n- Contract filtering\n- Security controls" as GW
+  rectangle "Kong API Gateway / BFF\n- Contract filtering\n- Security controls" as GW
 
   rectangle "Core Clinic Platform\n(Appointments, CRM, EHR, Payments)" as Core
 
-  rectangle "IAM / SSO (OIDC)\nMFA for staff" as IAM
+  rectangle "Keycloak (OIDC) / SSO\nMFA for staff" as IAM
 
   rectangle "Consent and Privacy Service\n- Consent\n- Purpose limitation\n- Retention control" as Consent
 
@@ -27,7 +27,7 @@ package "MEDIKAMENTE To-Be\n(System Boundary)" {
 
   rectangle "Audit Log Service\nImmutable access logs" as Audit
 
-  rectangle "KMS / Vault\nKeys and secrets management" as KMS
+  rectangle "HashiCorp Vault (KMS) / Secrets\nKeys and secrets management" as KMS
 
   rectangle "SIEM Monitoring\nAlerts and anomaly detection" as SIEM
 }
@@ -35,7 +35,7 @@ package "MEDIKAMENTE To-Be\n(System Boundary)" {
 ' --- Analytics Boundary ---
 package "Analytics Layer (Privacy by Design)" {
 
-  rectangle "Data Lake / Lakehouse\nRaw zone (controlled ingestion)" as Lake
+  rectangle "S3 (MinIO) Data Lake / Lakehouse\nRaw zone (controlled ingestion)" as Lake
 
   rectangle "Anonymization Pipeline\nAnonymize / Pseudonymize" as Anon
 
@@ -81,5 +81,4 @@ Auditability:
 - Immutable logs
 - Alerting on abnormal access
 end note
-
 @enduml
