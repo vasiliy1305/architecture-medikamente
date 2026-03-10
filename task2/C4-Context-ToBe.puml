@@ -1,0 +1,84 @@
+@startuml
+title MEDIKAMENTE - C4 Context (To-Be, Privacy by Design)
+
+skinparam rectangle {
+  BorderThickness 2
+}
+skinparam packageStyle rectangle
+
+' --- External Actors ---
+rectangle "Patient\n(Portal / Mobile App)" as Patient
+rectangle "Staff\n(Reception / Doctors / Cashier / Accounting)" as Staff
+rectangle "Lab Partner\n(External API)" as Lab
+rectangle "1C and Cash Register\n(Migration period)" as Legacy
+
+' --- Main System Boundary ---
+package "MEDIKAMENTE To-Be\n(System Boundary)" {
+
+  rectangle "Kong API Gateway / BFF\n- Contract filtering\n- Security controls" as GW
+
+  rectangle "Core Clinic Platform\n(Appointments, CRM, EHR, Payments)" as Core
+
+  rectangle "Keycloak (OIDC) / SSO\nMFA for staff" as IAM
+
+  rectangle "Consent and Privacy Service\n- Consent\n- Purpose limitation\n- Retention control" as Consent
+
+  rectangle "Tagging and Policy Engine\nRBAC + ABAC by tags" as Policy
+
+  rectangle "Audit Log Service\nImmutable access logs" as Audit
+
+  rectangle "HashiCorp Vault (KMS) / Secrets\nKeys and secrets management" as KMS
+
+  rectangle "SIEM Monitoring\nAlerts and anomaly detection" as SIEM
+}
+
+' --- Analytics Boundary ---
+package "Analytics Layer (Privacy by Design)" {
+
+  rectangle "S3 (MinIO) Data Lake / Lakehouse\nRaw zone (controlled ingestion)" as Lake
+
+  rectangle "Anonymization Pipeline\nAnonymize / Pseudonymize" as Anon
+
+  rectangle "Curated DWH + BI / ML Workspace\nApproved datasets only" as Curated
+}
+
+' --- Relationships ---
+Patient --> GW : HTTPS requests
+Staff --> GW : HTTPS operations
+
+GW --> IAM : Authentication (OIDC)
+GW --> Consent : Consent check
+GW --> Policy : Access decision by tags
+GW --> Core : Business operations
+
+Core --> Audit : Log sensitive access
+Audit --> SIEM : Security events
+
+Core --> KMS : Encryption keys
+
+GW --> Lab : Minimal API contract
+Core --> Legacy : Migration integration
+
+Core --> Lake : Export by policy
+Lake --> Anon : Anonymization
+Anon --> Curated : Approved datasets
+
+' --- Privacy by Design Annotations ---
+note right of Policy
+Data Minimization:
+- Filter fields at gateway
+- Access by tags
+end note
+
+note right of Consent
+Purpose Limitation:
+- Consent validation
+- Retention control
+end note
+
+note right of Audit
+Auditability:
+- Immutable logs
+- Alerting on abnormal access
+end note
+@enduml

@@ -1,0 +1,66 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="DFD-03-Payment-As-Is" id="0">
+    <mxGraphModel dx="2266" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Пациент" vertex="1">
+          <mxGeometry height="60" width="140" x="-140" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Кассир" vertex="1">
+          <mxGeometry height="60" width="140" x="400" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" value="Процесс: Оплата услуги (касса)" vertex="1">
+          <mxGeometry height="120" width="300" x="320" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Система: ПК кассира (Excel + 1С клиент)" vertex="1">
+          <mxGeometry height="70" width="220" x="360" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;" value="Data Store: Excel (двойной учёт оплат)" vertex="1">
+          <mxGeometry height="70" width="280" x="330" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Система: 1С:Бухгалтерия (файловый режим)" vertex="1">
+          <mxGeometry height="70" width="280" x="770" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;" value="Data Store: Файлы базы 1С (на сервере)" vertex="1">
+          <mxGeometry height="70" width="280" x="1210" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;" value="Система: ККМ (касса)" vertex="1">
+          <mxGeometry height="70" width="140" x="840" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;" value="Data Store: Active Directory" vertex="1">
+          <mxGeometry height="70" width="280" x="840" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="4" value="Данные для оплаты (услуга, сумма)&amp;nbsp;&lt;div&gt;идентификация пациента (PII минимум)&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="4" value="Ввод данных оплаты / подтверждение">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="5" value="Операции в Excel и 1С">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="6" value="Двойной учёт: запись оплаты (PII + сумма + услуга)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="7" value="Проводка оплаты&amp;nbsp;">
+          <mxGeometry relative="1" x="0.2632" y="15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="8" value="Хранение данных&amp;nbsp;&lt;div&gt;бухгалтерии&amp;nbsp;&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="9" value="Команды печати/фискализации (OLE/TCP/IP)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="10" value="Аутентификация кассира (AD)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ysqzr8VsBLdOUYDI7ZAf-28" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;&lt;b&gt;Оплата услуги через кассу и 1С&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="210" x="350" y="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
